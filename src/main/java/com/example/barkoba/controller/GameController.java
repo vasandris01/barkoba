@@ -20,13 +20,26 @@ public class GameController {
     @GetMapping({"","/","/home"})
     public String getHome(Model model){
         model.addAttribute("game", gameService.getGame());
-        model.addAttribute("choice", gameService.getChoice());
         return "home";
     }
 
     @PostMapping("/play")
     public String getChoice(@RequestParam("choice") int choice){
-        System.out.println(choice);
+        gameService.useChoice(choice);
+        if(gameService.getGame().end()){
+            return "redirect:/game/gg";
+        }
+        return "redirect:/game/home";
+    }
+
+    @GetMapping("/gg")
+    public String getEnd(){
+        return "gg";
+    }
+
+    @PostMapping("/new_game")
+    public String newGame(){
+        gameService.newGame();
         return "redirect:/game/home";
     }
 

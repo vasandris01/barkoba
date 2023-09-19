@@ -16,6 +16,15 @@ public class GameService {
         this.game = game;
     }
 
+    public void useChoice(int choice){
+        if(game.number() == choice){
+            game.end(true);
+        } else if (game.number() > choice) {
+            game.min(choice);
+        } else {
+            game.max(choice);
+        }
+    }
     public Game getGame() {
         return game;
     }
@@ -30,5 +39,12 @@ public class GameService {
 
     public void setChoice(int choice) {
         this.choice = choice;
+    }
+
+    public void newGame() {
+        this.setGame(
+                new Game(new Random().nextInt(1000),
+                        0,
+                        1000));
     }
 }

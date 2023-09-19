@@ -11,7 +11,7 @@ import java.util.Random;
 public class GameConfig {
     @Bean
     public Game gameBean(int number){
-        return new Game(number);
+        return new Game(number, 0,1000);
     }
 
     @Bean

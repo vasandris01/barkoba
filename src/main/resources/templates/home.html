@@ -5,8 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+<table>
+    <tr>
+        <td><h1 th:text="${game.min()}"></h1></td>
+        <td><h1>< x <</h1></td>
+        <td><h1 th:text="${game.max()}"></h1></td>
+    </tr>
+</table>
 <form th:action="@{/game/play}" method="post">
-    <input type="number" id="choice"  name="choice">
+    <input type="number" id="choice"  name="choice" th:max="${game.max()}" th:min="${game.min()}">
     <label for="choice"></label>
     <button type="submit">PLAY</button>
 </form>
