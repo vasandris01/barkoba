@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-
+<form th:action="@{/game/play}" method="post">
+    <input type="number" id="choice"  name="choice">
+    <label for="choice"></label>
+    <button type="submit">PLAY</button>
+</form>
 </body>
 </html>
