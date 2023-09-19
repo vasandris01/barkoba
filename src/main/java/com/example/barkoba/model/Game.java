@@ -1,2 +1,5 @@
-package com.example.barkoba.model;public class Game {
+package com.example.barkoba.model;
+
+public record Game(int number){
+
 }
